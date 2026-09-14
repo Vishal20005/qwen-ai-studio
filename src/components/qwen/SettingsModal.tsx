@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 
 type Theme = "system" | "light" | "dark";
 
@@ -46,7 +47,7 @@ export function SettingsModal({ open, onOpenChange }: { open: boolean; onOpenCha
             <SettingRow title="Theme" description="Choose how Qwen AI looks.">
               <div className="flex rounded-lg bg-muted p-1">
                 {(["system", "light", "dark"] as Theme[]).map((item) => (
-                  <button key={item} type="button" onClick={() => applyTheme(item)} className={theme === item ? "rounded-md bg-background px-2.5 py-1.5 text-xs font-medium text-foreground shadow-sm" : "rounded-md px-2.5 py-1.5 text-xs capitalize text-muted-foreground"}>{item}</button>
+                  <Button key={item} type="button" variant="ghost" size="sm" onClick={() => applyTheme(item)} className={theme === item ? "h-7 rounded-md bg-background px-2.5 text-xs capitalize text-foreground shadow-sm hover:bg-background" : "h-7 rounded-md px-2.5 text-xs capitalize text-muted-foreground"}>{item}</Button>
                 ))}
               </div>
             </SettingRow>
