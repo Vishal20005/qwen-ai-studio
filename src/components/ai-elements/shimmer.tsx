@@ -7,6 +7,9 @@ import type { ElementType, JSX } from "react";
 import { memo, useMemo } from "react";
 
 type MotionHTMLProps = MotionProps & Record<string, unknown>;
+type ShimmerMotionStyle = NonNullable<MotionProps["style"]> & {
+  "--spread": string;
+};
 
 // Cache motion components at module level to avoid creating during render
 const motionComponentCache = new Map<
@@ -56,11 +59,13 @@ const ShimmerComponent = ({
         className
       )}
       initial={{ backgroundPosition: "100% center" }}
-      style={{
-        "--spread": `${dynamicSpread}px`,
-        backgroundImage:
-          "var(--bg), linear-gradient(var(--color-muted-foreground), var(--color-muted-foreground))",
-      }}
+      style={
+        {
+          "--spread": `${dynamicSpread}px`,
+          backgroundImage:
+            "var(--bg), linear-gradient(var(--color-muted-foreground), var(--color-muted-foreground))",
+        } as ShimmerMotionStyle
+      }
       transition={{
         duration,
         ease: "linear",
