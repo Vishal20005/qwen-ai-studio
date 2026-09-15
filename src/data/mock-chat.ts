@@ -16,7 +16,7 @@ export type ChatMessageData = {
   id: string;
   role: "user" | "assistant";
   content: string;
-  sources?: Source[];
+  sources?: Source[] | undefined;
 };
 
 export type ConversationData = {
