@@ -16,7 +16,7 @@ export type ChatMessageData = {
   id: string;
   role: "user" | "assistant";
   content: string;
-  sources?: Source[];
+  sources?: Source[] | undefined;
 };
 
 export type ConversationData = {
@@ -120,4 +120,4 @@ export const suggestions: Array<{
 ];
 
 export const mockReply =
-  "That’s a thoughtful question. In this interface preview, I can demonstrate how a Qwen response will look and feel. Connect your FastAPI endpoint later to replace this mock answer with a live local-model response.";
+  "## Article 21: Right to Life and Personal Liberty\n\nArticle 21 protects the **right to life and personal liberty**. It states:\n\n> No person shall be deprived of his life or personal liberty except according to procedure established by law.\n\nThe Supreme Court has read this broadly to include dignity, privacy, livelihood, and a clean environment. In *Maneka Gandhi v. Union of India* (1978), the Court held that the procedure must be **just, fair, and reasonable** — not arbitrary.\n\n*This is a mock answer. Connect your FastAPI endpoint later to stream a live Qwen response.*";
